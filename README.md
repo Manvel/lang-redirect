@@ -10,7 +10,7 @@ lang-redirect is using `<link rel="alternate" href="..." hreflang="...">` and
 
 ## Usage example
 
-Consider HTML page below
+Consider HTML page below:
 ```html
 <html>
   <head>
@@ -19,13 +19,14 @@ Consider HTML page below
     <link rel="alternate" href="https://cmints.io/de/" hreflang="de">
     <link rel="alternate" href="https://cmints.io/es/" hreflang="es">
     ...
-    <script src="/js/lang-redirect.js"></script>
-    <script>
-      console.log(suggestRedirect());
-    </script>
   </head>
   ...
 </html>
+```
+
+```js
+const {suggestRedirect} = require("lang-redirect");
+suggestRedirect(); // ex. output: https://cmints.io/ru/
 ```
 
 ## Functions
