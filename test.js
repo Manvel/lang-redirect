@@ -76,6 +76,7 @@ const htmls2 = [
   </html>
     `,
     languages: ["en-US", "ru", "ru-RU", "hy-AM", "hy", "en"],
+    defaultLocale: "en",
     result: ""
   },
   {
@@ -87,18 +88,19 @@ const htmls2 = [
   </html>
     `,
     languages: ["ru", "ru-RU", "hy-AM", "hy", "en"],
+    defaultLocale: "en",
     result: "https://cmints.io/ru/"
   }
 ];
 
 describe("Testing suggestRedirect() function:", () => {
-  htmls2.forEach(({html, languages, result}) =>
+  htmls2.forEach(({html, languages, defaultLocale, result}) =>
   {
     it(`${html} and ${languages} should return ${result}`, () => {
       global.document = new JSDOM(html).window.document;
       global.navigator = {};
       global.navigator.languages = languages;
-      assert.equal(suggestRedirect(), result);
+      assert.equal(suggestRedirect(defaultLocale), result);
     });
   });
 });
