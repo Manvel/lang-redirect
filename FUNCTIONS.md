@@ -1,7 +1,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#getLocaleToPageMap">getLocaleToPageMap(doc)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#getLocaleToPageMap">getLocaleToPageMap()</a> ⇒ <code>Object</code></dt>
 <dd><p>Uses <link rel="alternate" href="..." hreflang="..."> tags to generate locale
 to alternative page mappings</p>
 </dd>
@@ -15,7 +15,7 @@ to alternative page mappings</p>
 
 <a name="getLocaleToPageMap"></a>
 
-## getLocaleToPageMap(doc) ⇒ <code>Object</code>
+## getLocaleToPageMap() ⇒ <code>Object</code>
 Uses <link rel="alternate" href="..." hreflang="..."> tags to generate locale
 to alternative page mappings
 
@@ -28,11 +28,6 @@ to alternative page mappings
 "es": "https://cmints.io/es/"
 }
 ```  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| doc | <code>Object</code> | window.document |
-
 <a name="getLocale"></a>
 
 ## getLocale(preferedLocales, availableLocales)

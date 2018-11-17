@@ -1,7 +1,6 @@
 /**
  * Uses <link rel="alternate" href="..." hreflang="..."> tags to generate locale
  * to alternative page mappings
- * @param {Object} doc window.document
  * @returns {Object} example output:
  * ```
  * {
@@ -11,10 +10,10 @@
  * }
  * ```
  */
-function getLocaleToPageMap(doc)
+function getLocaleToPageMap()
 {
   var alternativesSelector = "link[rel='alternate'][href][hreflang]";
-  var alternateElements = doc.querySelectorAll(alternativesSelector);
+  var alternateElements = document.querySelectorAll(alternativesSelector);
   var localeToPage = {};
 
   for (var i = 0; i < alternateElements.length; i++)
@@ -57,13 +56,22 @@ function getLocale(preferedLocales, availableLocales)
  */
 function suggestRedirect()
 {
-  if ("languages" in navigator && document)
+  if ("languages" in navigator)
   {
+    var defaultLocale = "";
+    if (document.documentElement.lang)
+    {
+      defaultLocale = document.documentElement.lang;
+    }
     var preferedLocales = navigator.languages;
     var localeToPage = getLocaleToPageMap(document);
     var availableLocales = Object.keys(localeToPage);
+    if (defaultLocale)
+    {
+      availableLocales.unshift(defaultLocale);
+    }
     var locale = getLocale(preferedLocales, availableLocales);
-    return localeToPage[locale];
+    return locale == defaultLocale ? "" : localeToPage[locale];
   }
   else
   {

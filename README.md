@@ -12,7 +12,7 @@ lang-redirect is using `<link rel="alternate" href="..." hreflang="...">` and
 
 Consider HTML page below:
 ```html
-<html>
+<html lang="en">
   <head>
     ...
     <link rel="alternate" href="https://cmints.io/ru/" hreflang="ru">
