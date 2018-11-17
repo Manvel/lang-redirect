@@ -53,18 +53,17 @@ function getLocale(preferedLocales, availableLocales)
 
 /**
  * Suggests a redirect location
- * @param {String} defaultLocale default locale of duplicate content
  */
-function suggestRedirect(defaultLocale)
+function suggestRedirect()
 {
   if ("languages" in navigator)
   {
     var preferedLocales = navigator.languages;
     var localeToPage = getLocaleToPageMap(document);
     var availableLocales = Object.keys(localeToPage);
-    availableLocales.unshift(defaultLocale);
+    availableLocales.unshift(document.documentElement.lang);
     var locale = getLocale(preferedLocales, availableLocales);
-    return locale == defaultLocale ? "" : localeToPage[locale];
+    return locale == document.documentElement.lang ? "" : localeToPage[locale];
   }
   else
   {

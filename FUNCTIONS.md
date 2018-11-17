@@ -8,7 +8,7 @@ to alternative page mappings</p>
 <dt><a href="#getLocale">getLocale(preferedLocales, availableLocales)</a></dt>
 <dd><p>Language negotiator</p>
 </dd>
-<dt><a href="#suggestRedirect">suggestRedirect(defaultLocale)</a></dt>
+<dt><a href="#suggestRedirect">suggestRedirect()</a></dt>
 <dd><p>Suggests a redirect location</p>
 </dd>
 </dl>
@@ -42,12 +42,7 @@ Language negotiator
 
 <a name="suggestRedirect"></a>
 
-## suggestRedirect(defaultLocale)
+## suggestRedirect()
 Suggests a redirect location
 
 **Kind**: global function  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| defaultLocale | <code>String</code> | default locale of duplicate content |
-

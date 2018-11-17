@@ -1,6 +1,6 @@
 {
   "name": "lang-redirect",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Multi-language website redirection util",
   "main": "index.js",
   "scripts": {
