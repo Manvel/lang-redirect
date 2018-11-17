@@ -1,6 +1,6 @@
 "use strict";
 
-function getAvailableLocaleToPageMap(doc)
+function getLocaleToPageMap(doc)
 {
   const alternativesSelector = "link[rel='alternate'][href][hreflang]";
   const alternateElements = doc.querySelectorAll(alternativesSelector);
@@ -15,7 +15,7 @@ function getAvailableLocaleToPageMap(doc)
   return localeToPage;
 }
 
-function getRedirect(preferedLocales, availableLocales)
+function getLocale(preferedLocales, availableLocales)
 {
   for (const preferedLocale of preferedLocales)
   {
@@ -43,3 +43,5 @@ const page = localeToPage[locale];
 console.log(locale);
 console.log(page);
 */
+
+module.exports = {getLocaleToPageMap, getLocale};
