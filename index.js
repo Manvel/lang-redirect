@@ -2,6 +2,14 @@
  * Uses <link rel="alternate" href="..." hreflang="..."> tags to generate locale
  * to alternative page mappings
  * @param {Object} doc window.document
+ * @returns {Object} example output:
+ * ```
+ * {
+ * "ru": "https://cmints.io/ru/",
+ * "de": "https://cmints.io/de/",
+ * "es": "https://cmints.io/es/"
+ * }
+ * ```
  */
 function getLocaleToPageMap(doc)
 {

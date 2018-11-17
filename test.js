@@ -50,7 +50,7 @@ const htmls = [
 describe("Testing getRedirect() function:", () => {
   locales.forEach(({page, user, result}) =>
   {
-    it(`getRedirect(["${user.join('"')}"], ["${page.join('"')}"]): Should output: ${result}`, () => {
+    it(`getRedirect(["${user.join(',"')}"], ["${page.join(',"')}"]): Should output: ${result}`, () => {
       assert.equal(getLocale(user, page), result);
     });
   });
