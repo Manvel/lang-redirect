@@ -5,7 +5,7 @@ for the multilanguage websites.
 
 Uses `<link rel="alternate" href="..." hreflang="...">` and `navigator.languages` to suggest a redirection link.
 
-# Usage example
+## Usage example
 
 Consider HTML page below
 ```html
@@ -25,3 +25,6 @@ Consider HTML page below
 </html>
 ```
 
+## Functions
+
+Learn more about [functions here](/FUNCTIONS.md).
