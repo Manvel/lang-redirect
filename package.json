@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Manvel/lang-redirect#readme",
   "devDependencies": {
+    "jsdom": "^13.0.0",
     "mocha": "^5.2.0"
   }
 }
