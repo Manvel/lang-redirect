@@ -1,47 +1,66 @@
-"use strict";
-
+/**
+ * Uses <link rel="alternate" href="..." hreflang="..."> tags to generate locale
+ * to alternative page mappings
+ * @param {Object} doc window.document
+ */
 function getLocaleToPageMap(doc)
 {
-  const alternativesSelector = "link[rel='alternate'][href][hreflang]";
-  const alternateElements = doc.querySelectorAll(alternativesSelector);
-  const localeToPage = {};
+  var alternativesSelector = "link[rel='alternate'][href][hreflang]";
+  var alternateElements = doc.querySelectorAll(alternativesSelector);
+  var localeToPage = {};
 
-  for (const alternateElement of alternateElements)
+  for (var i = 0; i < alternateElements.length; i++)
   {
-    const page = alternateElement.getAttribute("href");
-    const locale = alternateElement.getAttribute("hreflang");
+    var alternateElement = alternateElements[i];
+    var page = alternateElement.getAttribute("href");
+    var locale = alternateElement.getAttribute("hreflang");
     localeToPage[locale] = page;
   }
   return localeToPage;
 }
 
+/**
+ * Language negotiator
+ * @param {Array} preferedLocales ex.: navigator.languages
+ * @param {Array} availableLocales ex.: ["en-EN", "ru", "es_ES"]
+ */
 function getLocale(preferedLocales, availableLocales)
 {
-  for (const preferedLocale of preferedLocales)
+  for (var i = 0; i < preferedLocales.length; i++)
   {
-    const [country, region] = preferedLocale.split("-");
-    const locale = availableLocales.find((locale) =>
+    var preferedLocale = preferedLocales[i];
+    var country = preferedLocale.split("-")[0];
+    var region = preferedLocale.split("-")[1];
+    for (var j = 0; j < availableLocales.length; j++)
     {
-      return (locale == country || locale == country + "-" + region ||
-      locale == country + "_" + region);
-    });
-    if (locale)
-    {
-      return locale;
+      var locale = availableLocales[j];
+      if (locale == country || locale == country + "-" + region ||
+          locale == country + "_" + region)
+      {
+        return locale;
+      }
     }
   }
   return null;
 }
 
-/*
-const preferedLocales = navigator.languages;
-const localeToPage = getAvailableLocaleToPageMap();
-const availableLocales = Object.keys(localeToPage);
-const locale = getRedirect(preferedLocales, availableLocales);
-const page = localeToPage[locale];
+/**
+ * Suggests a redirect location
+ */
+function suggestRedirect()
+{
+  if (languages in navigator && document)
+  {
+    var preferedLocales = navigator.languages;
+    var localeToPage = getLocaleToPageMap(document);
+    var availableLocales = Object.keys(localeToPage);
+    var locale = getRedirect(preferedLocales, availableLocales);
+    return localeToPage[locale];
+  }
+  else
+  {
+    console.log("Suggest method is not supported");
+  }
+}
 
-console.log(locale);
-console.log(page);
-*/
-
-module.exports = {getLocaleToPageMap, getLocale};
+module.exports = {getLocaleToPageMap, getLocale, suggestRedirect};
