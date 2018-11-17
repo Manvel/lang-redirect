@@ -57,7 +57,7 @@ function getLocale(preferedLocales, availableLocales)
  */
 function suggestRedirect()
 {
-  if (languages in navigator && document)
+  if ("languages" in navigator && document)
   {
     var preferedLocales = navigator.languages;
     var localeToPage = getLocaleToPageMap(document);
