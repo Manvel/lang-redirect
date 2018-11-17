@@ -62,7 +62,7 @@ function suggestRedirect()
     var preferedLocales = navigator.languages;
     var localeToPage = getLocaleToPageMap(document);
     var availableLocales = Object.keys(localeToPage);
-    var locale = getRedirect(preferedLocales, availableLocales);
+    var locale = getLocale(preferedLocales, availableLocales);
     return localeToPage[locale];
   }
   else
