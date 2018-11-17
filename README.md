@@ -1,9 +1,12 @@
+# lang-redirect
+
+[![Build Status](https://travis-ci.org/Manvel/lang-redirect.svg?branch=master)](https://travis-ci.org/Manvel/lang-redirect)
+
 Multi-language website redirection util that helps to determine redirection URL
 for the multilanguage websites.
 
-# About
-
-Uses `<link rel="alternate" href="..." hreflang="...">` and `navigator.languages` to suggest a redirection link.
+lang-redirect is using `<link rel="alternate" href="..." hreflang="...">` and
+`navigator.languages` to suggest a redirection link.
 
 ## Usage example
 
